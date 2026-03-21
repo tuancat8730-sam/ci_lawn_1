@@ -1,0 +1,134 @@
+.gp-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  background: transparent;
+  transition: all 0.35s ease;
+}
+
+.gp-navbar.scrolled {
+  background: #fff;
+  padding: 12px 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.gp-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.gp-logo .bi {
+  font-size: 1.6rem;
+  color: #4CAF50;
+}
+
+.gp-navbar.scrolled .gp-logo {
+  color: var(--green-dark);
+}
+
+/* Nav links */
+.gp-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+}
+
+.gp-nav-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.25s;
+  position: relative;
+}
+
+.gp-nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--green-light);
+  transition: width 0.25s ease;
+}
+
+.gp-nav-links a:hover::after {
+  width: 100%;
+}
+
+.gp-navbar.scrolled .gp-nav-links a {
+  color: var(--gray-dark);
+}
+
+.gp-nav-links a:hover {
+  color: var(--green-light);
+}
+
+.gp-navbar.scrolled .gp-nav-links a:hover {
+  color: var(--green-primary);
+}
+
+/* CTA */
+.gp-cta {
+  font-size: 0.88rem;
+}
+
+/* Hamburger */
+.gp-hamburger {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.gp-navbar.scrolled .gp-hamburger {
+  color: var(--green-dark);
+}
+
+/* Mobile menu */
+.gp-mobile-menu {
+  background: #fff;
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.gp-mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gp-mobile-menu li {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.gp-mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--gray-dark);
+  text-decoration: none;
+}
+
+.gp-mobile-menu a:hover {
+  color: var(--green-primary);
+}

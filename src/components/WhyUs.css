@@ -1,0 +1,97 @@
+.why-us-section {
+  background: var(--green-pale);
+}
+
+/* Image */
+.why-image-wrap {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.why-main-img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+}
+
+.why-badge-card {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: var(--green-dark);
+  color: #fff;
+  padding: 16px 22px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.why-badge-card .bi {
+  font-size: 2rem;
+  color: #FFD700;
+}
+
+.why-badge-card div {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-badge-card strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.why-badge-card span {
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
+/* Benefits list */
+.why-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--green-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.benefit-icon .bi {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.benefit-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gray-dark);
+  margin-bottom: 0.2rem;
+}
+
+.benefit-desc {
+  font-size: 0.875rem;
+  color: var(--gray-mid);
+  margin: 0;
+  line-height: 1.6;
+}
