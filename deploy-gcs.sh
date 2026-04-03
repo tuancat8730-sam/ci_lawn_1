@@ -80,11 +80,9 @@ gsutil -m -h "Cache-Control:public, max-age=31536000, immutable" \
 gsutil -h "Cache-Control:no-cache, no-store, must-revalidate" \
   cp dist/index.html "gs://$BUCKET_NAME/index.html"
 
-# Upload other public files (favicon, icons, images)
+# Upload other public files (favicon, icons, images) — exclude assets/ and index.html
 gsutil -m -h "Cache-Control:public, max-age=86400" \
-  rsync -r dist/ "gs://$BUCKET_NAME/" \
-  --exclude "assets/**" \
-  --exclude "index.html" 2>/dev/null || true
+  rsync -r -x "^assets/.*|^index\.html$" dist/ "gs://$BUCKET_NAME/"
 
 echo "  ✓ Files uploaded"
 
