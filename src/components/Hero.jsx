@@ -2,9 +2,8 @@ import './Hero.css'
 
 const STATS = [
   { icon: 'bi-award-fill', value: '10+', label: 'Years Experience' },
-  { icon: 'bi-people-fill', value: '500+', label: 'Happy Clients' },
+  { icon: 'bi-people-fill', value: '100+', label: 'Happy Clients' },
   { icon: 'bi-patch-check-fill', value: '100%', label: 'Insured & Licensed' },
-  { icon: 'bi-star-fill', value: '4.9★', label: 'Average Rating' },
 ]
 
 export default function Hero() {
@@ -26,12 +25,13 @@ export default function Hero() {
             </h1>
 
             <p className="hero-subtitle">
-              From regular mowing to full seasonal maintenance — we keep your lawn
-              lush, healthy, and picture-perfect all year long.
+              Capital Lawncare is a full service lawn care company, serving the Edmonton area since 2020.
+              Scheduled and efficient service, working to meet customer expectations.
+              We have employees who care and customers who are satisfied.
             </p>
 
             <div className="hero-actions d-flex gap-3 justify-content-center flex-wrap">
-              <a href="#services" className="btn-green btn btn-lg d-inline-flex align-items-center gap-2">
+              <a href="#about" className="btn-green btn btn-lg d-inline-flex align-items-center gap-2">
                 <i className="bi bi-grid-fill" />
                 Our Services
               </a>

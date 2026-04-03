@@ -12,10 +12,10 @@ const SERVICES = [
 ]
 
 const INFO = [
-  { icon: 'bi-geo-alt-fill', label: 'Our Location', value: '123 Garden Way, Ottawa, ON K1A 0B1' },
-  { icon: 'bi-telephone-fill', label: 'Phone', value: '(613) 555-0187' },
-  { icon: 'bi-envelope-fill', label: 'Email', value: 'hello@greenprolawn.ca' },
-  { icon: 'bi-clock-fill', label: 'Hours', value: 'Mon–Sat: 7am – 7pm\nSunday: By appointment' },
+  { icon: 'bi-geo-alt-fill', label: 'Our Location', value: '4505 97 St NW, Edmonton, AB T6E 5Y8' },
+  { icon: 'bi-telephone-fill', label: 'Phone', value: '780-989-3987' },
+  { icon: 'bi-envelope-fill', label: 'Email', value: 'lawncare@capitalirrigation.com' },
+  { icon: 'bi-clock-fill', label: 'Hours', value: 'Monday – Friday: 9am – 4pm' },
 ]
 
 export default function Contact() {
@@ -151,11 +151,25 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Map placeholder */}
-              <div className="contact-map-placeholder">
-                <i className="bi bi-map-fill" />
-                <span>Ottawa, ON</span>
-                <p>We service the Greater Ottawa Area</p>
+              {/* Map */}
+              <div className="contact-map-wrap">
+                <iframe
+                  title="Capital Lawncare Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.7!2d-113.4955!3d53.4903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a0224a8b5f1b3d%3A0x1!2s4505+97+St+NW%2C+Edmonton%2C+AB+T6E+5Y8!5e0!3m2!1sen!2sca!4v1"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0, borderRadius: '12px' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <div className="contact-map-label">
+                  <i className="bi bi-geo-alt-fill" />
+                  <div>
+                    <strong>Edmonton, AB</strong>
+                    <span>We service the Edmonton area</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

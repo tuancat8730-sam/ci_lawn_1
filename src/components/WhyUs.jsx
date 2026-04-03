@@ -1,68 +1,109 @@
 import './WhyUs.css'
 
-const BENEFITS = [
-  { icon: 'bi-patch-check-fill', title: 'Licensed & Fully Insured', desc: 'All our crews are trained, certified, and fully insured for your peace of mind.' },
-  { icon: 'bi-lightning-charge-fill', title: 'Same-Week Service', desc: 'Book today and we\'ll be at your property within the same week — guaranteed.' },
-  { icon: 'bi-leaf-fill', title: 'Eco-Friendly Products', desc: 'We use organic and low-impact treatments that are safe for kids, pets, and the environment.' },
-  { icon: 'bi-shield-check', title: 'Satisfaction Guarantee', desc: 'Not 100% happy? We\'ll come back and make it right at no extra cost.' },
-  { icon: 'bi-chat-dots-fill', title: 'Free Estimates', desc: 'Get a detailed, no-obligation quote for any job — big or small.' },
+const PLANS = [
+  {
+    name: 'Spring Clean-Up',
+    icon: 'bi-flower1',
+    originalPrice: '$299',
+    price: '$229',
+    badge: null,
+    features: [
+      'Debris & leaf removal',
+      'Edge trimming & cleanup',
+      'Garden bed clearing',
+      'Sidewalk & driveway blowing',
+      'First mow of the season',
+    ],
+    cta: 'Book Now',
+    featured: false,
+  },
+  {
+    name: 'Regular Lawn Maintenance',
+    icon: 'bi-scissors',
+    originalPrice: null,
+    price: '$89',
+    badge: 'Most Popular',
+    features: [
+      'Weekly or bi-weekly mowing',
+      'Edge trimming every visit',
+      'Grass clipping cleanup',
+      'Sidewalk & driveway blowing',
+      'Season-long scheduling',
+    ],
+    cta: 'Get Started',
+    featured: true,
+  },
+  {
+    name: 'Fertilizer & Weed Control',
+    icon: 'bi-bug-fill',
+    originalPrice: '$259',
+    price: '$200',
+    badge: null,
+    features: [
+      'Full lawn weed treatment',
+      'Eco-friendly products',
+      'Safe for kids & pets',
+      'Dandelion & thistle removal',
+      'Follow-up inspection included',
+    ],
+    cta: 'Book Now',
+    featured: false,
+  },
 ]
 
 export default function WhyUs() {
   return (
     <section className="section-pad why-us-section" id="about">
       <div className="container">
-        <div className="row align-items-center g-5">
-          {/* Image */}
-          <div className="col-lg-5">
-            <div className="why-image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80"
-                alt="Professional lawn care team"
-                className="why-main-img"
-              />
-              <div className="why-badge-card">
-                <i className="bi bi-trophy-fill" />
-                <div>
-                  <strong>Award-Winning</strong>
-                  <span>Best Lawn Service 2023</span>
+        <div className="text-center mb-5">
+          <span className="section-label">Our Lawn Care Services</span>
+          <div className="divider-green mx-auto" />
+          <h2 className="section-title mt-2">Simple, Transparent Pricing</h2>
+          <p className="text-muted mx-auto" style={{ maxWidth: 520, fontSize: '1rem', lineHeight: 1.8 }}>
+            No hidden fees. Choose the service that fits your lawn — and your budget.
+          </p>
+        </div>
+
+        <div className="row g-4 justify-content-center">
+          {PLANS.map(plan => (
+            <div className="col-lg-4 col-md-6" key={plan.name}>
+              <div className={`pricing-card ${plan.featured ? 'pricing-card--featured' : ''}`}>
+                {plan.badge && (
+                  <div className="pricing-badge">{plan.badge}</div>
+                )}
+
+                <div className="pricing-icon">
+                  <i className={`bi ${plan.icon}`} />
                 </div>
+
+                <h3 className="pricing-name">{plan.name}</h3>
+
+                <div className="pricing-price">
+                  {plan.originalPrice && (
+                    <span className="pricing-original">{plan.originalPrice}</span>
+                  )}
+                  <span className="pricing-current">{plan.price}</span>
+                  <span className="pricing-unit">/visit</span>
+                </div>
+
+                <ul className="pricing-features">
+                  {plan.features.map(f => (
+                    <li key={f}>
+                      <i className="bi bi-check-circle-fill" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#contact"
+                  className={`btn btn-lg w-100 mt-auto ${plan.featured ? 'btn-green' : 'btn-outline-green'}`}
+                >
+                  {plan.cta}
+                </a>
               </div>
             </div>
-          </div>
-
-          {/* Content */}
-          <div className="col-lg-7">
-            <span className="section-label">Why Choose Us</span>
-            <div className="divider-green" style={{ margin: '0 0 1rem' }} />
-            <h2 className="section-title text-start mb-3">
-              The GreenPro Difference
-            </h2>
-            <p className="text-muted mb-4" style={{ fontSize: '1rem', lineHeight: '1.8' }}>
-              We're not just another lawn company. We're your neighbors — and we treat every
-              lawn as if it were our own. Our commitment to quality, reliability, and
-              environmental responsibility sets us apart.
-            </p>
-
-            <div className="why-benefits">
-              {BENEFITS.map(b => (
-                <div className="benefit-item" key={b.title}>
-                  <div className="benefit-icon">
-                    <i className={`bi ${b.icon}`} />
-                  </div>
-                  <div>
-                    <h4 className="benefit-title">{b.title}</h4>
-                    <p className="benefit-desc">{b.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <a href="#contact" className="btn-green btn btn-lg mt-4 d-inline-flex align-items-center gap-2">
-              <i className="bi bi-telephone-fill" />
-              Get Your Free Estimate
-            </a>
-          </div>
+          ))}
         </div>
       </div>
     </section>

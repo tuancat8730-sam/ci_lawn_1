@@ -7,12 +7,6 @@ const QUICK_LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-const SOCIAL = [
-  { icon: 'bi-facebook', href: '#' },
-  { icon: 'bi-instagram', href: '#' },
-  { icon: 'bi-twitter-x', href: '#' },
-  { icon: 'bi-google', href: '#' },
-]
 
 export default function Footer() {
   return (
@@ -22,7 +16,7 @@ export default function Footer() {
         <div className="container d-flex align-items-center justify-content-between flex-wrap gap-3">
           <div>
             <h3 className="footer-cta-title">Ready for a Perfect Lawn?</h3>
-            <p className="footer-cta-sub mb-0">Join 500+ happy clients who trust GreenPro every season.</p>
+            <p className="footer-cta-sub mb-0">Join 500+ happy clients who trust Capital Lawn Care every season.</p>
           </div>
           <a href="#contact" className="btn-outline-white btn btn-lg d-inline-flex align-items-center gap-2">
             <i className="bi bi-telephone-fill" />
@@ -39,20 +33,17 @@ export default function Footer() {
             <div className="col-lg-4 col-md-6">
               <div className="footer-brand">
                 <a href="#home" className="footer-logo">
-                  <i className="bi bi-flower1 me-2" />
-                  GreenPro
+                  <img
+                    src="https://capitalirrigation.com/static/img/logo2.png"
+                    alt="Capital Lawn Care"
+                    className="footer-logo-img"
+                  />
+                  <span className="footer-logo-text">Capital Lawn Care</span>
                 </a>
                 <p className="footer-tagline">
                   Professional lawn care services that keep your outdoor spaces
                   beautiful, healthy, and thriving — all year long.
                 </p>
-                <div className="footer-social">
-                  {SOCIAL.map(s => (
-                    <a key={s.icon} href={s.href} className="social-link" aria-label={s.icon}>
-                      <i className={`bi ${s.icon}`} />
-                    </a>
-                  ))}
-                </div>
               </div>
             </div>
 
@@ -77,21 +68,38 @@ export default function Footer() {
               <ul className="footer-contact-list">
                 <li>
                   <i className="bi bi-geo-alt-fill" />
-                  <span>123 Garden Way, Ottawa, ON K1A 0B1</span>
+                  <span>4505 97 St NW, Edmonton, AB T6E 5Y8</span>
                 </li>
                 <li>
                   <i className="bi bi-telephone-fill" />
-                  <a href="tel:+16135550187">(613) 555-0187</a>
+                  <a href="tel:+17809893987">780-989-3987</a>
                 </li>
                 <li>
                   <i className="bi bi-envelope-fill" />
-                  <a href="mailto:hello@greenprolawn.ca">hello@greenprolawn.ca</a>
+                  <a href="mailto:lawncare@capitalirrigation.com">lawncare@capitalirrigation.com</a>
                 </li>
                 <li>
                   <i className="bi bi-clock-fill" />
-                  <span>Mon–Sat: 7am – 7pm</span>
+                  <span>Monday – Friday: 9am – 4pm</span>
                 </li>
               </ul>
+
+              {/* Mini map */}
+              <div className="footer-map-wrap">
+                <iframe
+                  title="Edmonton Office"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.7!2d-113.4955!3d53.4903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a0224a8b5f1b3d%3A0x1!2s4505+97+St+NW%2C+Edmonton%2C+AB+T6E+5Y8!5e0!3m2!1sen!2sca!4v1"
+                  width="100%"
+                  height="160"
+                  style={{ border: 0, borderRadius: '10px', display: 'block' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <p className="footer-map-label">
+                  <i className="bi bi-geo-fill" /> Edmonton, AB — We service the Edmonton area
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -100,7 +108,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="footer-bottom">
         <div className="container d-flex align-items-center justify-content-between flex-wrap gap-2">
-          <p className="mb-0">© {new Date().getFullYear()} GreenPro Lawn Care. All rights reserved.</p>
+          <p className="mb-0">© {new Date().getFullYear()} Capital Lawn Care. All rights reserved.</p>
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
