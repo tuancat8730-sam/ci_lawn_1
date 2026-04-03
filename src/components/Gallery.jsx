@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './Gallery.css'
 
 const IMAGES = [
@@ -33,10 +34,34 @@ const IMAGES = [
   },
 ]
 
+const FAQS = [
+  {
+    q: 'What happens if it is raining on my scheduled cut day?',
+    a: 'If we are unable to cut on our usual day, we will complete your cut as soon as we are able and the weather has dried. There will be weeks where we need to work into the evenings to catch up.',
+    icon: 'bi-cloud-rain-fill',
+  },
+  {
+    q: 'Can my grass clippings be bagged?',
+    a: 'We can bag your clippings or mulch them back into your lawn. Bagged clippings are either put into the city provided green bin or left in a plastic bag for the customer to dispose of. Unfortunately, we are unable to take your clippings away from your house.',
+    icon: 'bi-bag-fill',
+  },
+  {
+    q: 'How do I pay my invoice?',
+    a: 'We will email your invoice, which will include payment options. We accept e-transfer, cheque or credit card payment through our website or over the phone.',
+    icon: 'bi-credit-card-fill',
+  },
+]
+
 export default function Gallery() {
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const toggle = (i) => setOpenIndex(openIndex === i ? null : i)
+
   return (
     <section className="section-pad gallery-section" id="gallery">
       <div className="container">
+
+        {/* Gallery */}
         <div className="text-center mb-5">
           <span className="section-label">Our Work</span>
           <div className="divider-green" />
@@ -46,7 +71,7 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="gallery-grid">
+        <div className="gallery-grid mb-6">
           {IMAGES.map((img, i) => (
             <div className="gallery-item" key={i}>
               <img src={img.src} alt={img.alt} />
@@ -59,6 +84,44 @@ export default function Gallery() {
             </div>
           ))}
         </div>
+
+        {/* FAQ */}
+        <div className="faq-wrap">
+          <div className="text-center mb-5">
+            <span className="section-label">FAQ</span>
+            <div className="divider-green" />
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <p className="section-subtitle">
+              Everything you need to know before booking your service.
+            </p>
+          </div>
+
+          <div className="faq-list">
+            {FAQS.map((faq, i) => (
+              <div
+                className={`faq-item ${openIndex === i ? 'faq-item--open' : ''}`}
+                key={i}
+              >
+                <button
+                  className="faq-question"
+                  onClick={() => toggle(i)}
+                  aria-expanded={openIndex === i}
+                >
+                  <span className="faq-icon-wrap">
+                    <i className={`bi ${faq.icon}`} />
+                  </span>
+                  <span className="faq-q-text">{faq.q}</span>
+                  <i className={`bi faq-chevron ${openIndex === i ? 'bi-chevron-up' : 'bi-chevron-down'}`} />
+                </button>
+
+                <div className="faq-answer">
+                  <p>{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   )

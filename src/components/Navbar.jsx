@@ -19,12 +19,33 @@ export default function Navbar() {
   }, [])
 
   return (
+    <>
+      {/* Top bar */}
+      <div className="top-bar">
+        <div className="container d-flex align-items-center justify-content-center gap-2">
+          <i className="bi bi-credit-card-fill" />
+          <span>Pay your invoice online — quick and secure.</span>
+          <a
+            href="https://capitalirrigation.com/payment/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="top-bar-link"
+          >
+            Pay Now <i className="bi bi-arrow-right" />
+          </a>
+        </div>
+      </div>
+
     <nav className={`gp-navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container d-flex align-items-center justify-content-between">
         {/* Logo */}
         <a href="#home" className="gp-logo">
-          <i className="bi bi-flower1 me-2" />
-          GreenPro
+          <img
+            src="https://capitalirrigation.com/static/img/logo2.png"
+            alt="Capital Lawn Care"
+            className="gp-logo-img"
+          />
+          <span className="gp-logo-text">Capital Lawn Care</span>
         </a>
 
         {/* Desktop Nav */}
@@ -70,5 +91,6 @@ export default function Navbar() {
         </div>
       )}
     </nav>
+    </>
   )
 }

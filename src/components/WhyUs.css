@@ -2,96 +2,169 @@
   background: var(--green-pale);
 }
 
-/* Image */
-.why-image-wrap {
+/* Pricing Cards */
+.pricing-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   position: relative;
-  display: inline-block;
-  width: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.why-main-img {
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  border-radius: 16px;
+.pricing-card:hover {
+  transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
 
-.why-badge-card {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
+.pricing-card--featured {
   background: var(--green-dark);
+  border-color: var(--green-primary);
   color: #fff;
-  padding: 16px 22px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: var(--shadow-md);
 }
 
-.why-badge-card .bi {
-  font-size: 2rem;
-  color: #FFD700;
+.pricing-card--featured .pricing-name,
+.pricing-card--featured .pricing-current,
+.pricing-card--featured .pricing-unit {
+  color: #fff;
 }
 
-.why-badge-card div {
-  display: flex;
-  flex-direction: column;
+.pricing-card--featured .pricing-original {
+  color: rgba(255, 255, 255, 0.55);
 }
 
-.why-badge-card strong {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
+.pricing-card--featured .pricing-features li {
+  color: rgba(255, 255, 255, 0.88);
 }
 
-.why-badge-card span {
-  font-size: 0.78rem;
-  opacity: 0.8;
+.pricing-card--featured .pricing-features .bi-check-circle-fill {
+  color: #a8e6b0;
 }
 
-/* Benefits list */
-.why-benefits {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.benefit-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.benefit-icon {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
+/* Badge */
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
   background: var(--green-primary);
-  border-radius: 10px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 18px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Icon */
+.pricing-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--green-pale);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2px;
+  margin-bottom: 1.25rem;
 }
 
-.benefit-icon .bi {
-  font-size: 1.2rem;
+.pricing-card--featured .pricing-icon {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.pricing-icon .bi {
+  font-size: 1.6rem;
+  color: var(--green-primary);
+}
+
+.pricing-card--featured .pricing-icon .bi {
   color: #fff;
 }
 
-.benefit-title {
-  font-size: 0.95rem;
+/* Name */
+.pricing-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--gray-dark);
-  margin-bottom: 0.2rem;
+  margin-bottom: 1rem;
 }
 
-.benefit-desc {
-  font-size: 0.875rem;
+/* Price */
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-original {
+  font-size: 1rem;
   color: var(--gray-mid);
-  margin: 0;
-  line-height: 1.6;
+  text-decoration: line-through;
+}
+
+.pricing-current {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--green-primary);
+  line-height: 1;
+}
+
+.pricing-card--featured .pricing-current {
+  color: #fff;
+}
+
+.pricing-unit {
+  font-size: 0.85rem;
+  color: var(--gray-mid);
+}
+
+/* Features list */
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--gray-mid);
+}
+
+.pricing-features .bi-check-circle-fill {
+  color: var(--green-primary);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Outline button variant */
+.btn-outline-green {
+  border: 2px solid var(--green-primary);
+  color: var(--green-primary);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline-green:hover {
+  background: var(--green-primary);
+  color: #fff;
 }

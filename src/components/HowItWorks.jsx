@@ -10,8 +10,8 @@ const STEPS = [
   {
     num: '02',
     icon: 'bi-calendar-check-fill',
-    title: 'Schedule Your Service',
-    desc: 'We\'ll confirm your appointment within 24 hours and schedule a time that works for you — often same week.',
+    title: 'Lawn Care Confirmed',
+    desc: 'We\'ll confirm your service and let you know ahead of time when we will be at your house.',
   },
   {
     num: '03',
@@ -39,7 +39,7 @@ export default function HowItWorks() {
           {/* Connector line */}
           <div className="step-connector d-none d-lg-block" />
 
-          {STEPS.map((step, i) => (
+          {STEPS.map((step) => (
             <div className="col-lg-4" key={step.num}>
               <div className="step-card text-center">
                 <div className="step-num">{step.num}</div>
