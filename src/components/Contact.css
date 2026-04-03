@@ -165,3 +165,25 @@
   font-size: 0.8rem;
   color: var(--gray-mid);
 }
+
+/* =========================================
+   Responsive – Contact
+   ========================================= */
+@media (max-width: 768px) {
+  .contact-form-wrap {
+    padding: 1.75rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  .contact-info-title {
+    font-size: 1.35rem;
+  }
+
+  .contact-info-wrap {
+    padding: 1.5rem 0 0;
+  }
+
+  .contact-map-wrap iframe {
+    height: 220px !important;
+  }
+}

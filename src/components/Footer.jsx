@@ -34,7 +34,7 @@ export default function Footer() {
               <div className="footer-brand">
                 <a href="#home" className="footer-logo">
                   <img
-                    src="https://capitalirrigation.com/static/img/logo2.png"
+                    src="/images/logo3.PNG"
                     alt="Capital Lawn Care"
                     className="footer-logo-img"
                   />

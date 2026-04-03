@@ -168,3 +168,79 @@
   background: var(--green-primary);
   color: #fff;
 }
+
+/* Dots — hidden on desktop */
+.plans-dots {
+  display: none;
+}
+
+/* =========================================
+   Responsive – Pricing Cards & Slider
+   ========================================= */
+@media (max-width: 767px) {
+  /* Turn Bootstrap row into scroll snap slider */
+  .plans-slider.row {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0 !important;
+    /* Bleed to container edges so peek effect works */
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .plans-slider.row::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Each slide: 85% wide so next card peeks */
+  .plans-slide.col-md-6,
+  .plans-slide.col-lg-4 {
+    flex: 0 0 85%;
+    max-width: 85%;
+    width: 85%;
+    scroll-snap-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .pricing-card {
+    padding: 2rem 1.5rem;
+    height: 100%;
+  }
+
+  .pricing-current {
+    font-size: 1.9rem;
+  }
+
+  /* Show dots on mobile */
+  .plans-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+  }
+
+  .plans-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s, width 0.2s;
+  }
+
+  .plans-dot--active {
+    background: var(--green-primary);
+    transform: scale(1.25);
+    width: 22px;
+    border-radius: 4px;
+  }
+}

@@ -140,3 +140,38 @@ h1, h2, h3, h4, h5, h6 {
 html {
   scroll-behavior: smooth;
 }
+
+/* =========================================
+   Responsive – Global
+   ========================================= */
+@media (max-width: 768px) {
+  .section-pad {
+    padding: 56px 0;
+  }
+
+  .section-pad-sm {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-green,
+  .btn-outline-white,
+  .btn-outline-green {
+    padding: 11px 22px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.45rem;
+  }
+}

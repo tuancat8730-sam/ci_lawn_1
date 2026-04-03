@@ -41,7 +41,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#home" className="gp-logo">
           <img
-            src="https://capitalirrigation.com/static/img/logo2.png"
+            src="/images/logo3.PNG"
             alt="Capital Lawn Care"
             className="gp-logo-img"
           />

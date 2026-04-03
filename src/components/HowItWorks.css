@@ -67,3 +67,43 @@
   max-width: 280px;
   margin: 0 auto;
 }
+
+/* =========================================
+   Responsive – How It Works
+   ========================================= */
+@media (max-width: 991px) {
+  .step-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .step-card {
+    padding: 1.5rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    text-align: left;
+  }
+
+  .step-icon-wrap {
+    margin: 0;
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+  }
+
+  .step-icon-wrap .bi {
+    font-size: 1.6rem;
+  }
+
+  .step-num {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .step-desc {
+    margin: 0;
+    max-width: 100%;
+  }
+}

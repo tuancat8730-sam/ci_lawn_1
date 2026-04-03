@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './Gallery.css'
 
 const IMAGES = [
@@ -54,8 +54,24 @@ const FAQS = [
 
 export default function Gallery() {
   const [openIndex, setOpenIndex] = useState(null)
+  const [activeSlide, setActiveSlide] = useState(0)
+  const sliderRef = useRef(null)
 
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i)
+
+  const handleScroll = () => {
+    const el = sliderRef.current
+    if (!el) return
+    const idx = Math.round(el.scrollLeft / el.clientWidth)
+    setActiveSlide(idx)
+  }
+
+  const goToSlide = (i) => {
+    const el = sliderRef.current
+    if (!el) return
+    el.scrollTo({ left: i * el.clientWidth, behavior: 'smooth' })
+    setActiveSlide(i)
+  }
 
   return (
     <section className="section-pad gallery-section" id="gallery">
@@ -71,7 +87,8 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="gallery-grid mb-6">
+        {/* Desktop grid */}
+        <div className="gallery-grid mb-6 d-none d-md-grid">
           {IMAGES.map((img, i) => (
             <div className="gallery-item" key={i}>
               <img src={img.src} alt={img.alt} />
@@ -83,6 +100,31 @@ export default function Gallery() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile slider */}
+        <div className="gallery-slider-wrap d-md-none mb-6">
+          <div className="gallery-slider" ref={sliderRef} onScroll={handleScroll}>
+            {IMAGES.map((img, i) => (
+              <div className="gallery-slide" key={i}>
+                <img src={img.src} alt={img.alt} />
+                <div className="gallery-slide-label">
+                  <i className="bi bi-image" />
+                  <span>{img.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="gallery-dots">
+            {IMAGES.map((_, i) => (
+              <button
+                key={i}
+                className={`gallery-dot${i === activeSlide ? ' gallery-dot--active' : ''}`}
+                onClick={() => goToSlide(i)}
+                aria-label={`Go to image ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* FAQ */}

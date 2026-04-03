@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import './WhyUs.css'
 
 const PLANS = [
@@ -52,6 +53,23 @@ const PLANS = [
 ]
 
 export default function WhyUs() {
+  const sliderRef = useRef(null)
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  const handleScroll = () => {
+    const el = sliderRef.current
+    if (!el) return
+    const idx = Math.round(el.scrollLeft / el.clientWidth)
+    setActiveSlide(idx)
+  }
+
+  const goToSlide = (i) => {
+    const el = sliderRef.current
+    if (!el) return
+    el.scrollTo({ left: i * el.clientWidth, behavior: 'smooth' })
+    setActiveSlide(i)
+  }
+
   return (
     <section className="section-pad why-us-section" id="about">
       <div className="container">
@@ -64,9 +82,9 @@ export default function WhyUs() {
           </p>
         </div>
 
-        <div className="row g-4 justify-content-center">
+        <div className="plans-slider row g-4 justify-content-center" ref={sliderRef} onScroll={handleScroll}>
           {PLANS.map(plan => (
-            <div className="col-lg-4 col-md-6" key={plan.name}>
+            <div className="plans-slide col-lg-4 col-md-6" key={plan.name}>
               <div className={`pricing-card ${plan.featured ? 'pricing-card--featured' : ''}`}>
                 {plan.badge && (
                   <div className="pricing-badge">{plan.badge}</div>
@@ -103,6 +121,18 @@ export default function WhyUs() {
                 </a>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Dot indicators — visible on mobile only */}
+        <div className="plans-dots">
+          {PLANS.map((_, i) => (
+            <button
+              key={i}
+              className={`plans-dot${i === activeSlide ? ' plans-dot--active' : ''}`}
+              onClick={() => goToSlide(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
           ))}
         </div>
       </div>

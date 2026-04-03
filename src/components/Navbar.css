@@ -64,6 +64,7 @@
   object-fit: contain;
 }
 
+
 .gp-logo-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
@@ -85,6 +86,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  gap: 8px;
   transition: color 0.3s;
 }
 
@@ -192,4 +194,64 @@
 
 .gp-mobile-menu a:hover {
   color: var(--green-primary);
+}
+
+/* =========================================
+   Responsive – Navbar
+   ========================================= */
+@media (max-width: 768px) {
+  .gp-logo-text {
+    display: none;
+  }
+
+  .top-bar span {
+    display: none;
+  }
+
+  .top-bar .bi-credit-card-fill {
+    display: none;
+  }
+
+  .top-bar {
+    text-align: center;
+    padding: 6px 0;
+  }
+
+  .gp-navbar {
+    top: 32px;
+    padding: 14px 0;
+  }
+
+  .gp-navbar.scrolled {
+    top: 32px;
+  }
+
+  .gp-logo-img {
+    height: 38px;
+  }
+
+  .gp-logo-text {
+    font-size: 0.95rem;
+  }
+
+  .gp-mobile-menu {
+    padding: 0.75rem 1rem 1.25rem;
+  }
+
+  .gp-mobile-menu a {
+    padding: 14px 4px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar {
+    font-size: 0.75rem;
+    padding: 5px 0;
+  }
+
+  .top-bar-link {
+    padding: 3px 10px;
+    font-size: 0.72rem;
+  }
 }
